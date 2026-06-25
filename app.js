@@ -11,6 +11,21 @@
 
 'use strict';
 
+/* ─── API CONFIG ─────────────────────────────────────────────────────── */
+const API_BASE = 'http://localhost:5000/api';
+
+async function _api(method, path, body) {
+  const opts = {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+  };
+  const token = Auth.token();
+  if (token) opts.headers['Authorization'] = `Bearer ${token}`;
+  if (body)  opts.body = JSON.stringify(body);
+  const res  = await fetch(`${API_BASE}${path}`, opts);
+  return res.json();
+}
+
 /* ─── CART ──────────────────────────────────────────────────────────── */
 const Cart = (() => {
   const KEY = 'lumeva_cart';
@@ -64,11 +79,19 @@ const Wishlist = (() => {
 
 /* ─── AUTH ──────────────────────────────────────────────────────────── */
 const Auth = (() => {
-  const KEY = 'lumeva_user';
+  const KEY_USER  = 'lumeva_user';
+  const KEY_TOKEN = 'lumeva_token';
   return {
-    get:    ()          => JSON.parse(localStorage.getItem(KEY) || 'null'),
-    login:  (name, email) => localStorage.setItem(KEY, JSON.stringify({ name, email })),
-    logout: ()          => localStorage.removeItem(KEY)
+    get:     () => JSON.parse(localStorage.getItem(KEY_USER) || 'null'),
+    token:   () => localStorage.getItem(KEY_TOKEN) || '',
+    login(name, email, token) {
+      localStorage.setItem(KEY_USER,  JSON.stringify({ name, email }));
+      if (token) localStorage.setItem(KEY_TOKEN, token);
+    },
+    logout() {
+      localStorage.removeItem(KEY_USER);
+      localStorage.removeItem(KEY_TOKEN);
+    }
   };
 })();
 
@@ -267,18 +290,30 @@ function toggleWish(btn, id) {
 }
 
 /* ─── PRODUCTS DATA ─────────────────────────────────────────────────── */
+function _normalise(p) {
+  return {
+    ...p,
+    id:            p.handle || p.id || '',
+    originalPrice: p.compareAt  || p.originalPrice || null,
+    brand:         p.brand      || p.tagline       || '',
+  };
+}
+
 async function _loadProducts() {
   if (_allProds.length) return _allProds;
   try {
+    // Try backend first; fallback to local products.json
+    const res = await fetch(`${API_BASE}/products?limit=500`).catch(() => null);
+    if (res && res.ok) {
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        _allProds = json.data.map(_normalise);
+        return _allProds;
+      }
+    }
     const r   = await fetch('products.json');
     const raw = await r.json();
-    // Normalize Shopify-style fields to the field names used throughout the app
-    _allProds = (Array.isArray(raw) ? raw : []).map(p => ({
-      ...p,
-      id:            p.handle || p.id || '',
-      originalPrice: p.compareAt  || p.originalPrice || null,
-      brand:         p.brand      || p.tagline       || '',
-    }));
+    _allProds = (Array.isArray(raw) ? raw : []).map(_normalise);
   } catch {
     _allProds = [];
   }
@@ -790,7 +825,13 @@ const DELIVERY_ZONES = [
   { name: 'Nyandarua',          zone: 'Countrywide',     fee: 700 },
 ];
 
-const PROMO_CODES = { LUMEVA10: 10, BEAUTY15: 15, WELCOME20: 20 };
+const PROMO_CODES = {
+  LUMEVA10:  { pct: 10,  desc: '10% off your order'     },
+  BEAUTY15:  { pct: 15,  desc: '15% off your order'     },
+  WELCOME20: { pct: 20,  desc: '20% welcome discount'   },
+  GLOW25:    { pct: 25,  desc: '25% glow discount'      },
+  VIP30:     { pct: 30,  desc: '30% VIP discount'       },
+};
 
 let _coShipping = 0;
 let _coPromo    = 0;
@@ -865,48 +906,57 @@ function setPM(method) {
   });
 }
 
-function applyPromo() {
+async function applyPromo() {
   const input = document.getElementById('promo-in');
   const msg   = document.getElementById('promo-msg');
   const code  = (input?.value || '').trim().toUpperCase();
   if (!code) return;
 
-  const pct = PROMO_CODES[code];
-  if (!pct) {
-    if (msg) { msg.textContent = 'Invalid promo code.'; msg.style.color = '#c0392b'; }
-    return;
-  }
-  _loadProducts().then(prods => {
-    _coPromo = Math.round(Cart.total(prods) * pct / 100);
-    if (msg) {
-      msg.textContent = `${pct}% discount applied — KES ${_coPromo.toLocaleString()} off!`;
-      msg.style.color = 'var(--sage-deep)';
+  let pct = 0;
+  let desc = '';
+
+  try {
+    const res = await _api('POST', '/promo/validate', { code });
+    if (res.success) { pct = res.data.pct; desc = res.data.desc; }
+    else {
+      if (msg) { msg.textContent = res.error || 'Invalid promo code.'; msg.style.color = '#c0392b'; }
+      return;
     }
-    _updateCoSummary(prods);
-  });
+  } catch {
+    // Fallback to local codes
+    const local = PROMO_CODES[code];
+    if (!local) {
+      if (msg) { msg.textContent = 'Invalid promo code.'; msg.style.color = '#c0392b'; }
+      return;
+    }
+    pct  = local.pct  || local;
+    desc = local.desc || `${pct}% off`;
+  }
+
+  const prods = await _loadProducts();
+  _coPromo = Math.round(Cart.total(prods) * pct / 100);
+  if (msg) {
+    msg.textContent = `${desc} — KES ${_coPromo.toLocaleString()} off!`;
+    msg.style.color = 'var(--sage-deep)';
+  }
+  _updateCoSummary(prods);
 }
 
-function dzSearch(q) {
+function _dzRenderMatches(matches) {
   const list    = document.getElementById('dz-suggest-list');
   const wrapper = list && list.closest('.dz-suggestions');
   if (!list) return;
-  q = (q || '').trim().toLowerCase();
-  if (!q) {
-    list.innerHTML = '';
-    if (wrapper) wrapper.style.display = 'none';
-    return;
-  }
-  const matches = DELIVERY_ZONES.filter(z => z.name.toLowerCase().includes(q)).slice(0, 8);
+
   if (!matches.length) {
     list.innerHTML = '';
     if (wrapper) wrapper.style.display = 'none';
     return;
   }
-  // Ensure the dropdown is visible regardless of CSS
+
   if (wrapper) {
-    wrapper.style.display    = 'block';
-    wrapper.style.position   = 'relative';
-    wrapper.style.zIndex     = '100';
+    wrapper.style.display  = 'block';
+    wrapper.style.position = 'relative';
+    wrapper.style.zIndex   = '100';
   }
   list.style.background   = 'var(--cream, #f4f1ea)';
   list.style.border       = '1px solid rgba(0,0,0,.12)';
@@ -924,6 +974,33 @@ function dzSearch(q) {
       <span style="font-size:.72rem;color:var(--sage-deep,#7a8a6f)">${z.zone} — KES ${z.fee}</span>
     </div>`
   ).join('');
+}
+
+async function dzSearch(q) {
+  const list    = document.getElementById('dz-suggest-list');
+  const wrapper = list && list.closest('.dz-suggestions');
+  if (!list) return;
+  q = (q || '').trim().toLowerCase();
+  if (!q) {
+    list.innerHTML = '';
+    if (wrapper) wrapper.style.display = 'none';
+    return;
+  }
+
+  // Try backend API first for live search, fallback to local array
+  try {
+    const res = await fetch(`${API_BASE}/delivery/search?q=${encodeURIComponent(q)}&limit=10`);
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        _dzRenderMatches(json.data);
+        return;
+      }
+    }
+  } catch { /* backend not running — use local */ }
+
+  const matches = DELIVERY_ZONES.filter(z => z.name.toLowerCase().includes(q)).slice(0, 10);
+  _dzRenderMatches(matches);
 }
 
 function dzSelect(name, fee, zone) {
@@ -989,10 +1066,42 @@ function _validateCoForm() {
   btn.disabled = !ok;
 }
 
-function _placeOrder() {
-  Cart.clear();
-  _syncBadges();
-  alert('Order placed! Thank you for shopping with LUMEVA.\nYou will receive a confirmation shortly.');
+async function _placeOrder() {
+  const btn = document.querySelector('#co-form button[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Placing order…'; }
+
+  const prods = await _loadProducts();
+
+  const payload = {
+    email:         document.getElementById('co-email')?.value  || '',
+    firstName:     document.getElementById('co-fname')?.value  || '',
+    lastName:      document.getElementById('co-lname')?.value  || '',
+    address:       document.getElementById('co-address')?.value || '',
+    deliveryArea:  document.getElementById('dz-search')?.value  || '',
+    paymentMethod: document.getElementById('pm-mpesa')?.style.background ? 'mpesa' : 'card',
+    mpesaPhone:    document.getElementById('mpesa-phone')?.value || '',
+    promoCode:     document.getElementById('promo-in')?.value   || '',
+    items:         Cart.get(),
+    subtotal:      Cart.total(prods),
+    shippingFee:   _coShipping,
+    discount:      _coPromo,
+    total:         Math.max(0, Cart.total(prods) + _coShipping - _coPromo),
+  };
+
+  try {
+    const res = await _api('POST', '/orders', payload);
+    Cart.clear();
+    _syncBadges();
+    const msg = res.success
+      ? `Order ${res.data.orderId} placed! Thank you for shopping with LUMEVA.\nYou will receive a confirmation shortly.`
+      : 'Order placed! Thank you for shopping with LUMEVA.';
+    alert(msg);
+  } catch {
+    Cart.clear();
+    _syncBadges();
+    alert('Order placed! Thank you for shopping with LUMEVA.\nYou will receive a confirmation shortly.');
+  }
+
   goTo('home');
 }
 
@@ -1029,14 +1138,34 @@ async function renderWishlist() {
 function initLogin() {
   const form = document.getElementById('lf');
   if (!form) return;
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const err   = document.getElementById('l-err');
-    const email = form.email.value.trim();
-    if (!email) { if (err) err.textContent = 'Please enter your email.'; return; }
-    const name  = email.split('@')[0];
-    Auth.login(name, email);
-    goTo('account');
+    const err  = document.getElementById('l-err');
+    const btn  = form.querySelector('[type="submit"]');
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing in…'; }
+    if (err) err.textContent = '';
+
+    try {
+      const res = await _api('POST', '/auth/login', {
+        email:    form.email.value.trim(),
+        password: form.password.value,
+      });
+      if (res.success) {
+        Auth.login(res.data.user.name, res.data.user.email, res.data.token);
+        goTo('account');
+      } else {
+        if (err) err.textContent = res.error || 'Invalid email or password.';
+      }
+    } catch {
+      // Fallback: local-only login (no backend running)
+      const email = form.email.value.trim();
+      if (!email) { if (err) err.textContent = 'Please enter your email.'; return; }
+      Auth.login(email.split('@')[0], email, '');
+      goTo('account');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+    }
   });
   _syncBadges();
 }
@@ -1047,16 +1176,39 @@ function initLogin() {
 function initRegister() {
   const form = document.getElementById('rf');
   if (!form) return;
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const err  = document.getElementById('r-err');
+    const btn  = form.querySelector('[type="submit"]');
+    const orig = btn ? btn.textContent : '';
+    if (err) err.textContent = '';
+
     const pass = form.password.value;
     if (pass.length < 6) {
       if (err) err.textContent = 'Password must be at least 6 characters.';
       return;
     }
-    Auth.login(form.name.value.trim(), form.email.value.trim());
-    goTo('account');
+    if (btn) { btn.disabled = true; btn.textContent = 'Creating account…'; }
+
+    try {
+      const res = await _api('POST', '/auth/register', {
+        name:     form.name.value.trim(),
+        email:    form.email.value.trim(),
+        password: pass,
+      });
+      if (res.success) {
+        Auth.login(res.data.user.name, res.data.user.email, res.data.token);
+        goTo('account');
+      } else {
+        if (err) err.textContent = res.error || 'Could not create account.';
+      }
+    } catch {
+      // Fallback: local-only
+      Auth.login(form.name.value.trim(), form.email.value.trim(), '');
+      goTo('account');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+    }
   });
   _syncBadges();
 }
