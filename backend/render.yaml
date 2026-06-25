@@ -9,9 +9,13 @@ services:
         value: production
       - key: PORT
         value: 10000
-      - key: JWT_SECRET
-        generateValue: true
-      - key: ALLOWED_ORIGINS
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
         sync: false
       - key: MPESA_ENV
         value: production
@@ -23,9 +27,15 @@ services:
         sync: false
       - key: MPESA_PASSKEY
         sync: false
-      - key: MPESA_CALLBACK_URL
+      - key: CALLBACK_URL
         sync: false
       - key: RESEND_API_KEY
         sync: false
       - key: EMAIL_FROM
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SITE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
         sync: false
