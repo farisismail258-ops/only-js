@@ -635,8 +635,6 @@ function _renderCart(prods) {
   }
 
   const subtotal = Cart.total(prods);
-  const shipping = subtotal >= 5000 ? 0 : 350;
-  const total    = subtotal + shipping;
 
   wrap.innerHTML = `
     <h1>Your bag (${Cart.count()})</h1>
@@ -670,9 +668,9 @@ function _renderCart(prods) {
       <div class="cart-summary">
         <h2>Order summary</h2>
         <div class="sum-row"><span>Subtotal</span><span>KES ${subtotal.toLocaleString()}</span></div>
-        <div class="sum-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : `KES ${shipping}`}</span></div>
+        <div class="sum-row"><span>Shipping</span><span style="color:#888;font-size:.8rem">Calculated at checkout</span></div>
         <div class="sum-row" style="font-size:.72rem;color:var(--muted-fg)"><span>VAT (16%)</span><span>Included</span></div>
-        <div class="sum-total"><span>Total</span><span>KES ${total.toLocaleString()}</span></div>
+        <div class="sum-total"><span>Total</span><span>KES ${subtotal.toLocaleString()}+</span></div>
         <button class="btn-primary" style="width:100%;text-align:center;margin-top:1.5rem" onclick="goTo('checkout')">
           Proceed to checkout
         </button>
@@ -833,12 +831,25 @@ const PROMO_CODES = {
   VIP30:     { pct: 30,  desc: '30% VIP discount'       },
 };
 
-let _coShipping = 0;
-let _coPromo    = 0;
-let _dzMapInst  = null;
-let _dzMapOpen  = false;
+let _coShipping    = 0;
+let _coPromo       = 0;
+let _dzMapInst     = null;
+let _dzMapOpen     = false;
+let _dzAreaSelected = false;
+
+const ZONE_DOT = {
+  'CBD Express':     '#9aa38b',
+  'Nairobi Metro':   '#7a8a6f',
+  'Greater Nairobi': '#6f7d62',
+  'Major Towns':     '#505949',
+  'Countrywide':     '#3a4238',
+};
 
 async function initCheckout() {
+  _coShipping     = 0;
+  _coPromo        = 0;
+  _dzAreaSelected = false;
+
   const prods = await _loadProducts();
   _renderCoItems(prods);
 
@@ -883,15 +894,25 @@ function _renderCoItems(prods) {
 function _updateCoSummary(prods) {
   if (!prods) { _loadProducts().then(_updateCoSummary); return; }
   const subtotal = Cart.total(prods);
-  const total    = Math.max(0, subtotal + _coShipping - _coPromo);
 
   const rows = document.querySelectorAll('.co-sum .sum-row');
   if (rows[0]) rows[0].querySelector('span:last-child').textContent = `KES ${subtotal.toLocaleString()}`;
   if (rows[1]) rows[1].querySelector('span:last-child').textContent =
-    _coShipping ? `KES ${_coShipping}` : 'Free';
+    _dzAreaSelected ? `KES ${_coShipping.toLocaleString()}` : 'Select your area';
 
   const totalEl = document.querySelector('.sum-total span:last-child');
-  if (totalEl) totalEl.textContent = `KES ${total.toLocaleString()}`;
+  if (!_dzAreaSelected) {
+    if (totalEl) totalEl.textContent = '—';
+  } else {
+    const total = Math.max(0, subtotal + _coShipping - _coPromo);
+    if (totalEl) totalEl.textContent = `KES ${total.toLocaleString()}`;
+  }
+
+  // Submit button text
+  const submitBtn = document.querySelector('#co-form button[type="submit"]');
+  if (submitBtn && !submitBtn.disabled) {
+    submitBtn.textContent = _dzAreaSelected ? 'Place order' : 'Select delivery area first';
+  }
 }
 
 function setPM(method) {
@@ -948,32 +969,38 @@ function _dzRenderMatches(matches) {
   if (!list) return;
 
   if (!matches.length) {
-    list.innerHTML = '';
-    if (wrapper) wrapper.style.display = 'none';
+    list.innerHTML = '<div style="padding:.75rem 1rem;font-size:.8rem;color:#888">No areas found</div>';
+    if (wrapper) { wrapper.style.display = 'block'; }
     return;
   }
 
   if (wrapper) {
-    wrapper.style.display  = 'block';
-    wrapper.style.position = 'relative';
-    wrapper.style.zIndex   = '100';
+    wrapper.style.display    = 'block';
+    wrapper.style.position   = 'relative';
+    wrapper.style.zIndex     = '200';
   }
-  list.style.background   = 'var(--cream, #f4f1ea)';
-  list.style.border       = '1px solid rgba(0,0,0,.12)';
-  list.style.borderRadius = '4px';
-  list.style.boxShadow    = '0 4px 16px rgba(0,0,0,.1)';
-  list.style.overflow     = 'hidden';
+  list.style.background    = '#fff';
+  list.style.border        = '1px solid rgba(0,0,0,.13)';
+  list.style.borderTop     = 'none';
+  list.style.borderRadius  = '0 0 4px 4px';
+  list.style.boxShadow     = '0 6px 20px rgba(0,0,0,.09)';
+  list.style.maxHeight     = '220px';
+  list.style.overflowY     = 'auto';
 
-  list.innerHTML = matches.map(z =>
-    `<div class="dz-suggest-item"
-      onmousedown="dzSelect('${z.name}',${z.fee},'${z.zone}')"
-      style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .85rem;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06);transition:background .15s"
-      onmouseover="this.style.background='rgba(154,163,139,.15)'"
+  list.innerHTML = matches.map(z => {
+    const dot = ZONE_DOT[z.zone] || '#9aa38b';
+    return `<div class="dz-suggest-item"
+      onmousedown="dzSelect('${z.name.replace(/'/g,"\\'")}',${z.fee},'${z.zone.replace(/'/g,"\\'")}')"
+      style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 1rem;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.05);transition:background .12s"
+      onmouseover="this.style.background='rgba(154,163,139,.12)'"
       onmouseout="this.style.background=''">
-      <span style="font-size:.82rem;font-weight:500">${z.name}</span>
-      <span style="font-size:.72rem;color:var(--sage-deep,#7a8a6f)">${z.zone} — KES ${z.fee}</span>
-    </div>`
-  ).join('');
+      <span style="display:flex;align-items:center;gap:.55rem;font-size:.83rem;color:#1a1a18">
+        <span style="width:8px;height:8px;border-radius:50%;background:${dot};flex-shrink:0;display:inline-block"></span>
+        ${z.name}
+      </span>
+      <span style="font-size:.78rem;color:#666;white-space:nowrap;margin-left:.5rem">KES ${z.fee.toLocaleString()}</span>
+    </div>`;
+  }).join('');
 }
 
 async function dzSearch(q) {
@@ -1005,14 +1032,27 @@ async function dzSearch(q) {
 
 function dzSelect(name, fee, zone) {
   const inp = document.getElementById('dz-search');
-  if (inp) inp.value = `${name} (${zone})`;
+  if (inp) {
+    inp.value = name;
+    inp.style.borderColor = 'var(--charcoal, #1a1a18)';
+  }
   const list    = document.getElementById('dz-suggest-list');
   const wrapper = list && list.closest('.dz-suggestions');
   if (list)    list.innerHTML = '';
   if (wrapper) wrapper.style.display = 'none';
+
+  const dot    = ZONE_DOT[zone] || '#9aa38b';
   const status = document.getElementById('dz-locate-status');
-  if (status) { status.textContent = `Delivery to ${name}: KES ${fee}`; status.style.display = 'block'; }
-  _coShipping = fee;
+  if (status) {
+    status.innerHTML = `<span style="display:inline-flex;align-items:center;gap:.4rem">
+      <span style="width:7px;height:7px;border-radius:50%;background:${dot};display:inline-block"></span>
+      ${zone} — KES ${fee.toLocaleString()} delivery to <strong>${name}</strong>
+    </span>`;
+    status.style.display = 'block';
+  }
+
+  _coShipping     = fee;
+  _dzAreaSelected = true;
   _loadProducts().then(_updateCoSummary);
   _validateCoForm();
 }
@@ -1025,7 +1065,7 @@ function dzLocate() {
   }
   if (status) { status.textContent = 'Locating…'; status.style.display = 'block'; }
   navigator.geolocation.getCurrentPosition(
-    () => dzSelect('Your location (Nairobi Metro)', 250, 'Nairobi Metro'),
+    () => dzSelect('Nairobi (Auto-detected)', 250, 'Nairobi Metro'),
     () => {
       if (status) { status.textContent = 'Could not detect location. Please search manually.'; status.style.display = 'block'; }
     }
@@ -1057,13 +1097,20 @@ function dzToggleMap() {
 }
 
 function _validateCoForm() {
-  const btn  = document.querySelector('#co-form button[type="submit"]');
+  const btn = document.querySelector('#co-form button[type="submit"]');
   if (!btn) return;
-  const ok = document.getElementById('co-email')?.value &&
-             document.getElementById('co-fname')?.value &&
-             document.getElementById('co-address')?.value &&
-             Cart.count() > 0;
-  btn.disabled = !ok;
+
+  const filled = document.getElementById('co-email')?.value    &&
+                 document.getElementById('co-fname')?.value    &&
+                 document.getElementById('co-address')?.value  &&
+                 Cart.count() > 0;
+
+  const ready = filled && _dzAreaSelected;
+  btn.disabled    = !ready;
+  btn.textContent = _dzAreaSelected
+    ? 'Place order'
+    : 'Select delivery area first';
+  btn.style.opacity = ready ? '1' : '.6';
 }
 
 async function _placeOrder() {
