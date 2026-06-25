@@ -272,7 +272,13 @@ async function _loadProducts() {
   try {
     const r   = await fetch('products.json');
     const raw = await r.json();
-    _allProds = Array.isArray(raw) ? raw : [];
+    // Normalize Shopify-style fields to the field names used throughout the app
+    _allProds = (Array.isArray(raw) ? raw : []).map(p => ({
+      ...p,
+      id:            p.handle || p.id || '',
+      originalPrice: p.compareAt  || p.originalPrice || null,
+      brand:         p.brand      || p.tagline       || '',
+    }));
   } catch {
     _allProds = [];
   }
@@ -286,15 +292,21 @@ async function initHome() {
   _syncBadges();
   const prods = await _loadProducts();
 
+  // Bestsellers section — single products-grid inside .bs-sec
+  const bsSec = document.querySelector('.bs-sec .products-grid');
+  if (bsSec) bsSec.innerHTML = prods.slice(0, 8).map(productTileHTML).join('');
+
+  // Fallback: any other named grids that may exist
   const featGrid = document.getElementById('feat-grid');
   if (featGrid) featGrid.innerHTML = prods.slice(0, 8).map(productTileHTML).join('');
-
-  const newGrid = document.getElementById('new-grid');
-  if (newGrid) newGrid.innerHTML = prods.slice(0, 4).map(productTileHTML).join('');
-
+  const newGrid  = document.getElementById('new-grid');
+  if (newGrid)  newGrid.innerHTML  = prods.slice(0, 4).map(productTileHTML).join('');
   const bestGrid = document.getElementById('best-grid');
   if (bestGrid) bestGrid.innerHTML = prods.slice(0, 4).map(productTileHTML).join('');
 }
+
+/* Start quiz — called from homepage quiz banner */
+function startQuiz() { goTo('quiz'); }
 
 /* ═══════════════════════════════════════════════════════════════════════
    PAGE: SHOP
@@ -787,16 +799,41 @@ function applyPromo() {
 }
 
 function dzSearch(q) {
-  const list = document.getElementById('dz-suggest-list');
+  const list    = document.getElementById('dz-suggest-list');
+  const wrapper = list && list.closest('.dz-suggestions');
   if (!list) return;
   q = (q || '').trim().toLowerCase();
-  if (!q) { list.innerHTML = ''; return; }
+  if (!q) {
+    list.innerHTML = '';
+    if (wrapper) wrapper.style.display = 'none';
+    return;
+  }
   const matches = DELIVERY_ZONES.filter(z => z.name.toLowerCase().includes(q)).slice(0, 8);
+  if (!matches.length) {
+    list.innerHTML = '';
+    if (wrapper) wrapper.style.display = 'none';
+    return;
+  }
+  // Ensure the dropdown is visible regardless of CSS
+  if (wrapper) {
+    wrapper.style.display    = 'block';
+    wrapper.style.position   = 'relative';
+    wrapper.style.zIndex     = '100';
+  }
+  list.style.background   = 'var(--cream, #f4f1ea)';
+  list.style.border       = '1px solid rgba(0,0,0,.12)';
+  list.style.borderRadius = '4px';
+  list.style.boxShadow    = '0 4px 16px rgba(0,0,0,.1)';
+  list.style.overflow     = 'hidden';
+
   list.innerHTML = matches.map(z =>
-    `<div class="dz-suggest-item" onclick="dzSelect('${z.name}',${z.fee},'${z.zone}')"
-      style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .75rem;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06)">
-      <span style="font-size:.82rem">${z.name}</span>
-      <span style="font-size:.72rem;color:var(--sage-deep)">${z.zone} — KES ${z.fee}</span>
+    `<div class="dz-suggest-item"
+      onmousedown="dzSelect('${z.name}',${z.fee},'${z.zone}')"
+      style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .85rem;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06);transition:background .15s"
+      onmouseover="this.style.background='rgba(154,163,139,.15)'"
+      onmouseout="this.style.background=''">
+      <span style="font-size:.82rem;font-weight:500">${z.name}</span>
+      <span style="font-size:.72rem;color:var(--sage-deep,#7a8a6f)">${z.zone} — KES ${z.fee}</span>
     </div>`
   ).join('');
 }
@@ -804,8 +841,10 @@ function dzSearch(q) {
 function dzSelect(name, fee, zone) {
   const inp = document.getElementById('dz-search');
   if (inp) inp.value = `${name} (${zone})`;
-  const list = document.getElementById('dz-suggest-list');
-  if (list) list.innerHTML = '';
+  const list    = document.getElementById('dz-suggest-list');
+  const wrapper = list && list.closest('.dz-suggestions');
+  if (list)    list.innerHTML = '';
+  if (wrapper) wrapper.style.display = 'none';
   const status = document.getElementById('dz-locate-status');
   if (status) { status.textContent = `Delivery to ${name}: KES ${fee}`; status.style.display = 'block'; }
   _coShipping = fee;
