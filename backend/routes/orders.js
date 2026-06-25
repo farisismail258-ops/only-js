@@ -4,6 +4,7 @@ const express  = require('express');
 const { v4: uuidv4 } = require('uuid');
 const { body, validationResult } = require('express-validator');
 const requireAuth = require('../middleware/auth');
+const { sendOrderConfirmation } = require('../services/email');
 const { ok, created, badRequest, serverError } = require('../utils/apiResponse');
 
 const router = express.Router();
@@ -60,11 +61,16 @@ router.post(
 
       orders.push(order);
 
+      // Send confirmation email (non-blocking — don't fail the order if email fails)
+      sendOrderConfirmation(order).catch(err =>
+        console.error('Order confirmation email failed:', err.message)
+      );
+
       created(res, {
         orderId:  order.id,
         status:   order.status,
         placedAt: order.placedAt,
-        message:  `Order ${order.id} placed successfully! You will receive a confirmation shortly.`,
+        message:  `Order ${order.id} placed successfully! You will receive a confirmation email shortly.`,
       });
     } catch (e) {
       serverError(res, e.message);

@@ -1070,31 +1070,54 @@ async function _placeOrder() {
   const btn = document.querySelector('#co-form button[type="submit"]');
   if (btn) { btn.disabled = true; btn.textContent = 'Placing order…'; }
 
-  const prods = await _loadProducts();
+  const prods       = await _loadProducts();
+  const email       = document.getElementById('co-email')?.value   || '';
+  const firstName   = document.getElementById('co-fname')?.value   || '';
+  const mpesaPhone  = document.getElementById('mpesa-phone')?.value || '';
+  const isMpesa     = !!document.getElementById('pay-mpesa') &&
+                      document.getElementById('pay-mpesa').style.display !== 'none';
+  const total       = Math.max(0, Cart.total(prods) + _coShipping - _coPromo);
 
   const payload = {
-    email:         document.getElementById('co-email')?.value  || '',
-    firstName:     document.getElementById('co-fname')?.value  || '',
-    lastName:      document.getElementById('co-lname')?.value  || '',
-    address:       document.getElementById('co-address')?.value || '',
-    deliveryArea:  document.getElementById('dz-search')?.value  || '',
-    paymentMethod: document.getElementById('pm-mpesa')?.style.background ? 'mpesa' : 'card',
-    mpesaPhone:    document.getElementById('mpesa-phone')?.value || '',
-    promoCode:     document.getElementById('promo-in')?.value   || '',
+    email,
+    firstName,
+    lastName:      document.getElementById('co-lname')?.value    || '',
+    address:       document.getElementById('co-address')?.value  || '',
+    deliveryArea:  document.getElementById('dz-search')?.value   || '',
+    paymentMethod: isMpesa ? 'mpesa' : 'card',
+    mpesaPhone,
+    promoCode:     document.getElementById('promo-in')?.value    || '',
     items:         Cart.get(),
     subtotal:      Cart.total(prods),
     shippingFee:   _coShipping,
     discount:      _coPromo,
-    total:         Math.max(0, Cart.total(prods) + _coShipping - _coPromo),
+    total,
   };
 
   try {
-    const res = await _api('POST', '/orders', payload);
+    // 1 — Place the order in the backend
+    const orderRes = await _api('POST', '/orders', payload);
+    const orderId  = orderRes?.data?.orderId || 'LMV-DEMO';
+
+    // 2 — If M-Pesa, trigger STK push
+    if (isMpesa && mpesaPhone) {
+      if (btn) btn.textContent = 'Sending M-Pesa prompt…';
+      try {
+        const mpesaRes = await _api('POST', '/mpesa/stkpush', {
+          phone: mpesaPhone, amount: total, orderId, email, firstName,
+        });
+        if (mpesaRes.success) {
+          // Poll for payment status (up to 30 s)
+          _pollMpesa(mpesaRes.data.checkoutRequestId, orderId);
+        }
+      } catch { /* STK push failed — order still placed */ }
+    }
+
     Cart.clear();
     _syncBadges();
-    const msg = res.success
-      ? `Order ${res.data.orderId} placed! Thank you for shopping with LUMEVA.\nYou will receive a confirmation shortly.`
-      : 'Order placed! Thank you for shopping with LUMEVA.';
+    const msg = isMpesa
+      ? `Order ${orderId} placed!\n\nCheck your phone for the M-Pesa payment prompt.\nA confirmation email will be sent once payment is received.`
+      : `Order ${orderId} placed! Thank you for shopping with LUMEVA.\nA confirmation email is on its way.`;
     alert(msg);
   } catch {
     Cart.clear();
@@ -1103,6 +1126,22 @@ async function _placeOrder() {
   }
 
   goTo('home');
+}
+
+async function _pollMpesa(checkoutRequestId, orderId) {
+  let tries = 0;
+  const interval = setInterval(async () => {
+    tries++;
+    if (tries > 10) { clearInterval(interval); return; }
+    try {
+      const res = await fetch(`${API_BASE}/mpesa/status/${checkoutRequestId}`);
+      const json = await res.json();
+      if (json?.data?.status === 'paid') {
+        clearInterval(interval);
+        console.log(`M-Pesa payment confirmed for order ${orderId}`);
+      }
+    } catch { clearInterval(interval); }
+  }, 3000); // check every 3 seconds
 }
 
 /* ═══════════════════════════════════════════════════════════════════════

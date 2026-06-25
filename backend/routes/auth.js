@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 const { body, validationResult } = require('express-validator');
 const { jwtSecret, jwtExpiresIn } = require('../config/config');
 const requireAuth = require('../middleware/auth');
+const { sendWelcomeEmail } = require('../services/email');
 const { ok, created, badRequest, unauthorized, serverError } = require('../utils/apiResponse');
 
 const router = express.Router();
@@ -40,6 +41,12 @@ router.post(
       users.push(user);
 
       const token = jwt.sign({ id: user.id, name, email }, jwtSecret, { expiresIn: jwtExpiresIn });
+
+      // Send welcome email (non-blocking)
+      sendWelcomeEmail({ name, email }).catch(err =>
+        console.error('Welcome email failed:', err.message)
+      );
+
       created(res, { token, user: { id: user.id, name, email } });
     } catch (e) {
       serverError(res, e.message);
