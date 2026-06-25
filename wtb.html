@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Where to Buy — LUMEVA</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="Kenya's premium beauty destination. Shop authentic K-beauty, skincare, fragrance & more — delivered nationwide. M-Pesa accepted."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link id="leaflet-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<!-- ===== Shared site CSS ===== -->
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="wtb">
+
+
+<!-- MARQUEE BANNER -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <!-- Hamburger (mobile) -->
+    <button class="h-icon hamburger" onclick="openMob()" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Logo -->
+    <span class="h-logo" onclick="goTo('home')">LUMEVA</span>
+
+    <!-- Desktop Nav -->
+    <nav class="h-nav">
+      <!-- SHOP with mega menu -->
+      <div class="shop-wrap">
+        <a onclick="goTo('shop')">Shop</a>
+        <div class="mega-menu">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h4>Featured</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">All Skincare</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Bestsellers</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">Gifts &amp; Sets</a></li>
+                <li><a onclick="goTo('shop');closeMega()">New</a></li>
+                <li><a onclick="goTo('brand-guide');closeMega()" style="color:var(--sage-deep)">✦ Brand Guide</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Category</h4>
+              <ul>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Fragrance</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Sun Care</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Makeup</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Body</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Hair</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">All Products</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Skin Type</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Oily</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Combination</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Dry</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Mature</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Sensitive</a></li>
+              </ul>
+              <h4 style="margin-top:1.25rem">Benefits</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Hydrating</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Brightening</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Moisturizing</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Calming</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Healthy Aging</a></li>
+              </ul>
+            </div>
+            <div class="mega-col mega-images">
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#cbcab7,#9aa38b)"></div>
+                <span>Gifts &amp; Sets</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#b9c0ab,#6f7d62)"></div>
+                <span>Gifts of Care</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('shop');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#d6d2c2,#9aa38b)"></div>
+                <span>Ritual Finder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a onclick="goTo('philosophy')">Our Story</a>
+      <a onclick="goTo('brand-guide')" style="font-weight:500">Brands</a>
+      <a onclick="goTo('skin-hub')">Skin Concerns</a>
+      <a onclick="goTo('ingredients')">Ingredients</a>
+      <a onclick="goTo('guides')">Guides</a>
+      <a onclick="goTo('wtb')">Where to Buy</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="h-actions">
+      <button class="h-icon" onclick="goTo('account')" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </button>
+      <button class="h-icon" onclick="goTo('wishlist')" aria-label="Wishlist" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+        <span class="cart-count" id="wish-badge" style="display:none;background:#c0392b">0</span>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart')" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU (full screen, Tatcha style) -->
+<div class="mob-overlay" id="mob-overlay">
+  <div class="mob-header">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+    <span class="mob-header-logo">LUMEVA</span>
+    <div style="display:flex;gap:.5rem">
+      <button class="h-icon" onclick="goTo('account');closeMob()" aria-label="Account">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart');closeMob()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge-mob" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs: Featured / Category / Skin Benefits / Our Story -->
+  <div class="mob-tabs">
+    <button class="mob-tab active" onclick="switchMobTab('featured',this)">Featured</button>
+    <button class="mob-tab" onclick="switchMobTab('category',this)">Category</button>
+    <button class="mob-tab" onclick="switchMobTab('benefits',this)">Skin Benefits</button>
+    <button class="mob-tab" onclick="switchMobTab('story',this)">Our Story</button>
+  </div>
+
+  <div class="mob-body">
+    <!-- Featured panel -->
+    <div class="mob-panel active" id="mob-featured">
+      <div class="mob-images">
+        <div class="mob-img-card" onclick="goTo('ingredients');closeMob()">
+          <div class="mic-icon">🌿</div>
+          <span>Ingredients</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('brand-guide');closeMob()">
+          <div class="mic-icon">✦</div>
+          <span>Brand Guide</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('guides');closeMob()">
+          <div class="mic-icon">📖</div>
+          <span>Guides</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('wtb');closeMob()">
+          <div class="mic-icon">📍</div>
+          <span>Where to Buy</span>
+        </div>
+      </div>
+      <div class="mob-section">
+        <a onclick="goTo('shop');closeMob()">All Skincare</a>
+        <a onclick="goTo('shop');closeMob()">Bestsellers</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">Gifts &amp; Sets</a>
+        <a onclick="goTo('shop');closeMob()">New</a>
+        <a onclick="goTo('shop');closeMob()">Exclusives</a>
+        <a onclick="goTo('shop');closeMob()">Minis</a>
+      </div>
+    </div>
+
+    <!-- Category panel -->
+    <div class="mob-panel" id="mob-category">
+      <div class="mob-section">
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Fragrance</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Sun Care</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Makeup</a>
+        <a onclick="goTo('collection','Body');closeMob()">Body</a>
+        <a onclick="goTo('collection','Body');closeMob()">Hair</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">All Products</a>
+      </div>
+    </div>
+
+    <!-- Skin Benefits panel -->
+    <div class="mob-panel" id="mob-benefits">
+      <div class="mob-section">
+        <h4>Skin Type</h4>
+        <a onclick="goTo('shop');closeMob()">Oily</a>
+        <a onclick="goTo('shop');closeMob()">Combination</a>
+        <a onclick="goTo('shop');closeMob()">Dry</a>
+        <a onclick="goTo('shop');closeMob()">Mature</a>
+        <a onclick="goTo('shop');closeMob()">Sensitive</a>
+      </div>
+      <div class="mob-section">
+        <h4>Benefits</h4>
+        <a onclick="goTo('shop');closeMob()">Hydrating</a>
+        <a onclick="goTo('shop');closeMob()">Brightening</a>
+        <a onclick="goTo('shop');closeMob()">Moisturizing</a>
+        <a onclick="goTo('shop');closeMob()">Calming</a>
+        <a onclick="goTo('shop');closeMob()">Healthy Aging</a>
+      </div>
+    </div>
+
+    <!-- Our Story panel -->\n    <div class="mob-panel" id="mob-story">
+      <div class="mob-section">
+        <a onclick="goTo('philosophy');closeMob()">Our Story</a>
+        <a onclick="goTo('philosophy');closeMob()">Giving Back</a>
+        <a onclick="goTo('brand-guide');closeMob()" style="color:var(--sage-deep);font-weight:500">✦ Brand Guide</a>
+        <a onclick="goTo('skin-hub');closeMob()">Skin Concerns</a>
+        <a onclick="goTo('ingredients');closeMob()">Ingredients</a>
+        <a onclick="goTo('guides');closeMob()">Guides</a>
+        <a onclick="goTo('wtb');closeMob()">Where to Buy</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mob-footer">
+    <button class="mob-ritual-btn" onclick="goTo('shop');closeMob()">Shop Now</button>
+    <a onclick="goTo('account');closeMob()">&#128100; Account</a>
+  </div>
+</div>
+
+<!-- PAGES -->
+<div id="page-home" class="page"></div>
+<div id="page-shop" class="page"></div>
+<div id="page-product" class="page"></div>
+<div id="page-cart" class="page"></div>
+<div id="page-checkout" class="page"></div>
+<div id="page-collection" class="page"></div>
+<div id="page-brand" class="page"></div>
+<div id="page-brand-guide" class="page"></div>
+<div id="page-philosophy" class="page"></div>
+<div id="page-ingredients" class="page"></div>
+<div id="page-guides" class="page"></div>
+<div id="page-wtb" class="page active">
+    <div class="wtb-wrap">
+
+      <!-- MAP COLUMN -->
+      <div class="wtb-map-col">
+        <div id="glowsecret-map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 20; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/77/64.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 700px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/77/65.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 956px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/76/64.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 700px, 0px); opacity: 0.97;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/78/64.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 700px, 0px); opacity: 0.965;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/76/65.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 956px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/78/65.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 956px, 0px); opacity: 0.865;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/77/63.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 444px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/77/66.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 1212px, 0px); opacity: 0.95;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/76/63.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 444px, 0px); opacity: 0.87;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/78/63.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 444px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/76/66.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 1212px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/78/66.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 1212px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/75/64.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 700px, 0px); opacity: 0.955;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/79/64.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 700px, 0px); opacity: 0.865;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/75/65.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 956px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/79/65.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 956px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/77/62.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 188px, 0px); opacity: 0.865;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/75/63.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 444px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/79/63.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 444px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/75/66.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 1212px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/79/66.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 1212px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/77/67.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 1468px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/76/62.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 188px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/78/62.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 188px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/76/67.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 1468px, 0px); opacity: 0.865;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/78/67.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 1468px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/75/62.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 188px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/79/62.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 188px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/75/67.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 1468px, 0px); opacity: 0.965;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/79/67.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 1468px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/77/61.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, -68px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/77/68.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(328px, 1724px, 0px); opacity: 1;"><img alt="" src="https://b.basemaps.cartocdn.com/rastertiles/voyager/7/76/61.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, -68px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/78/61.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, -68px, 0px); opacity: 0.865;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/76/68.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(72px, 1724px, 0px); opacity: 1;"><img alt="" src="https://c.basemaps.cartocdn.com/rastertiles/voyager/7/78/68.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(584px, 1724px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/75/61.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, -68px, 0px); opacity: 1;"><img alt="" src="https://a.basemaps.cartocdn.com/rastertiles/voyager/7/79/61.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, -68px, 0px); opacity: 1;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/75/68.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-184px, 1724px, 0px); opacity: 0.865;"><img alt="" src="https://d.basemaps.cartocdn.com/rastertiles/voyager/7/79/68.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(840px, 1724px, 0px); opacity: 0.865;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -7px; margin-top: -7px; width: 14px; height: 14px; transform: translate3d(352px, 817px, 0px); z-index: 817;"><div style="width:14px;height:14px;background:#9aa38b;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -7px; margin-top: -7px; width: 14px; height: 14px; transform: translate3d(352px, 817px, 0px); z-index: 817;"><div style="width:14px;height:14px;background:#9aa38b;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -7px; margin-top: -7px; width: 14px; height: 14px; transform: translate3d(348px, 818px, 0px); z-index: 818;"><div style="width:14px;height:14px;background:#9aa38b;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -7px; margin-top: -7px; width: 14px; height: 14px; transform: translate3d(354px, 816px, 0px); z-index: 816;"><div style="width:14px;height:14px;background:#9aa38b;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -7px; margin-top: -7px; width: 14px; height: 14px; transform: translate3d(611px, 1069px, 0px); z-index: 1069;"><div style="width:14px;height:14px;background:#9aa38b;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s"></div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(19833.7px, 16552.4px, 0px) scale(64);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a></div></div></div></div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="wtb-sidebar">
+        <div class="wtb-sidebar-head">
+          <p class="eyebrow">Stockists</p>
+          <h1>Where to find us</h1>
+          <p>Visit one of our boutiques across Kenya — experience the ritual in person.</p>
+          <button class="wtb-loc-btn" onclick="requestLocation()" id="allow-btn">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg>
+            Find nearest store
+          </button>
+          <div id="locate-error" style="margin-top:.65rem;font-size:.75rem;color:#a33a2a;display:none"></div>
+        </div>
+        <div class="wtb-nearest" id="nearest-result">
+          <p class="n-label">Nearest to you</p>
+          <p class="n-name" id="nearest-name"></p>
+          <p class="n-dist" id="nearest-dist"></p>
+        </div>
+        <div class="wtb-stores" id="stores-list"><div class="store-card" id="sc-0">
+      <p class="sc-area">Nairobi CBD</p>
+      <h2 class="sc-name">Norwich Union Building, Kimathi Street</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2833,36.8219" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-1">
+      <p class="sc-area">Nairobi CBD</p>
+      <h2 class="sc-name">Jubilee Exchange Building, Kaunda Street</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2838,36.8213" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-2">
+      <p class="sc-area">Kilimani, Nairobi</p>
+      <h2 class="sc-name">Adlife Plaza, Chania Avenue</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2929,36.7859" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-3">
+      <p class="sc-area">Eastleigh, Nairobi</p>
+      <h2 class="sc-name">BBS Mall (Shop 45 &amp; 46)</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2758,36.8485" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-4">
+      <p class="sc-area">Mombasa</p>
+      <h2 class="sc-name">Nyali Centre (Shop B20)</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-4.0533,39.6667" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div></div>
+      </div>
+
+    </div></div>
+
+      <!-- SIDEBAR -->
+      <div class="wtb-sidebar">
+        <div class="wtb-sidebar-head">
+          <p class="eyebrow">Stockists</p>
+          <h1>Where to find us</h1>
+          <p>Visit one of our boutiques across Kenya — experience the ritual in person.</p>
+          <button class="wtb-loc-btn" onclick="requestLocation()" id="allow-btn">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path></svg>
+            Find nearest store
+          </button>
+          <div id="locate-error" style="margin-top:.65rem;font-size:.75rem;color:#a33a2a;display:none"></div>
+        </div>
+        <div class="wtb-nearest" id="nearest-result">
+          <p class="n-label">Nearest to you</p>
+          <p class="n-name" id="nearest-name"></p>
+          <p class="n-dist" id="nearest-dist"></p>
+        </div>
+        <div class="wtb-stores" id="stores-list"><div class="store-card" id="sc-0">
+      <p class="sc-area">Nairobi CBD</p>
+      <h2 class="sc-name">Norwich Union Building, Kimathi Street</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2833,36.8219" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-1">
+      <p class="sc-area">Nairobi CBD</p>
+      <h2 class="sc-name">Jubilee Exchange Building, Kaunda Street</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2838,36.8213" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-2">
+      <p class="sc-area">Kilimani, Nairobi</p>
+      <h2 class="sc-name">Adlife Plaza, Chania Avenue</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2929,36.7859" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-3">
+      <p class="sc-area">Eastleigh, Nairobi</p>
+      <h2 class="sc-name">BBS Mall (Shop 45 &amp; 46)</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2758,36.8485" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div><div class="store-card" id="sc-4">
+      <p class="sc-area">Mombasa</p>
+      <h2 class="sc-name">Nyali Centre (Shop B20)</h2>
+      <a class="sc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=-4.0533,39.6667" target="_blank" onclick="event.stopPropagation()">Get directions →</a></div></div>
+      </div>
+
+    </div></div>
+<div id="page-login" class="page"></div>
+<div id="page-register" class="page"></div>
+<div id="page-account" class="page"></div>
+<div id="page-wishlist" class="page"></div>
+<div id="page-skin-dry" class="page"></div>
+<div id="page-skin-hub" class="page"></div>
+<div id="page-skin-acne" class="page"></div>
+<div id="page-skin-hyperpigmentation" class="page"></div>
+<div id="page-skin-barrier" class="page"></div>
+<div id="page-skin-sensitive" class="page"></div>
+<div id="page-skin-redness" class="page"></div>
+<div id="page-skin-finelines" class="page"></div>
+<div id="page-quiz" class="page"></div>
+<div id="page-quiz-results" class="page"></div>
+<div id="page-step-shop" class="page"></div>
+<div id="page-privacy" class="page"></div>
+<div id="page-returns" class="page"></div>
+<div id="page-terms" class="page"></div>
+<div id="page-custom" class="page"></div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-head">
+    <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--muted-fg);fill:none;stroke-width:1.5;flex-shrink:0"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    <input id="search-input" type="text" placeholder="Search 480+ products…" autocomplete="off" oninput="doSearch(this.value)"/>
+    <button class="search-close" onclick="closeSearch()" aria-label="Close search">&times;</button>
+  </div>
+  <div class="search-sugg" id="search-sugg">
+    <button onclick="seedSearch('serum')">Serum</button>
+    <button onclick="seedSearch('vanilla')">Vanilla</button>
+    <button onclick="seedSearch('sunscreen')">Sunscreen</button>
+    <button onclick="seedSearch('oud')">Oud</button>
+    <button onclick="seedSearch('cleanser')">Cleanser</button>
+    <button onclick="seedSearch('hair')">Hair</button>
+  </div>
+  <div class="search-meta" id="search-meta"></div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- NEWSLETTER -->
+<div id="newsletter-wrap">
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <p class="eyebrow">Join the ritual</p>
+      <h2>A daily moment, delivered.</h2>
+      <p>Sign up for early access to new launches, expert skincare guides, and complimentary samples.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing!')">
+        <input type="email" required placeholder="Email address"/>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container-tatcha">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">LUMEVA</div>
+        <p>Kenya's leading beauty destination. K-beauty, fragrances, skincare & more — delivered nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a onclick="goTo('shop')">Bestsellers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Cleansers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Serums</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Skincare</a></li>
+          <li><a onclick="goTo('collection','Makeup')">Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a onclick="goTo('philosophy')">Philosophy</a></li>
+          <li><a onclick="goTo('ingredients')">Ingredients</a></li>
+          <li><a onclick="goTo('guides')">Guides</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a onclick="goTo('login')">Sign In</a></li>
+          <li><a onclick="goTo('register')">Create Account</a></li>
+          <li><a onclick="goTo('account')">My Account</a></li>
+          <li><a onclick="goTo('cart')">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a onclick="goTo('privacy')">Privacy Policy</a></li>
+          <li><a onclick="goTo('returns')">Returns & Refunds</a></li>
+          <li><a onclick="goTo('terms')">Terms & Conditions</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LUMEVA — Premium Skincare & Beauty, Kenya</p>
+      <p style="margin-top:.35rem">
+        <a onclick="goTo('privacy')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Privacy Policy</a>
+        <a onclick="goTo('returns')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Returns</a>
+        <a onclick="goTo('terms')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer">Terms</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Shared site JS ===== -->
+<script src="app.js"></script>
+</body>
+</html>

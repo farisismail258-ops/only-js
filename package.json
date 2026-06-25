@@ -1,0 +1,17 @@
+{
+  "name": "lovable",
+  "version": "1.0.0",
+  "description": "Simple HTML/CSS/JS project",
+  "main": "shop.html",
+  "scripts": {
+    "dev": "http-server . -p 5000 -o",
+    "start": "http-server . -p 5000 -o"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

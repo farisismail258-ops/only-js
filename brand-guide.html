@@ -1,0 +1,3744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Brand Guide — LUMEVA</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="Kenya's premium beauty destination. Shop authentic K-beauty, skincare, fragrance & more — delivered nationwide. M-Pesa accepted."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link id="leaflet-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<!-- ===== Shared site CSS ===== -->
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="brand-guide">
+
+
+<!-- MARQUEE BANNER -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <!-- Hamburger (mobile) -->
+    <button class="h-icon hamburger" onclick="openMob()" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Logo -->
+    <span class="h-logo" onclick="goTo('home')">LUMEVA</span>
+
+    <!-- Desktop Nav -->
+    <nav class="h-nav">
+      <!-- SHOP with mega menu -->
+      <div class="shop-wrap">
+        <a onclick="goTo('shop')">Shop</a>
+        <div class="mega-menu">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h4>Featured</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">All Skincare</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Bestsellers</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">Gifts &amp; Sets</a></li>
+                <li><a onclick="goTo('shop');closeMega()">New</a></li>
+                <li><a onclick="goTo('brand-guide');closeMega()" style="color:var(--sage-deep)">✦ Brand Guide</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Category</h4>
+              <ul>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Fragrance</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Sun Care</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Makeup</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Body</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Hair</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">All Products</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Skin Type</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Oily</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Combination</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Dry</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Mature</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Sensitive</a></li>
+              </ul>
+              <h4 style="margin-top:1.25rem">Benefits</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Hydrating</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Brightening</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Moisturizing</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Calming</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Healthy Aging</a></li>
+              </ul>
+            </div>
+            <div class="mega-col mega-images">
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#cbcab7,#9aa38b)"></div>
+                <span>Gifts &amp; Sets</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#b9c0ab,#6f7d62)"></div>
+                <span>Gifts of Care</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('shop');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#d6d2c2,#9aa38b)"></div>
+                <span>Ritual Finder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a onclick="goTo('philosophy')">Our Story</a>
+      <a onclick="goTo('brand-guide')" style="font-weight:500">Brands</a>
+      <a onclick="goTo('skin-hub')">Skin Concerns</a>
+      <a onclick="goTo('ingredients')">Ingredients</a>
+      <a onclick="goTo('guides')">Guides</a>
+      <a onclick="goTo('wtb')">Where to Buy</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="h-actions">
+      <button class="h-icon" onclick="goTo('account')" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </button>
+      <button class="h-icon" onclick="goTo('wishlist')" aria-label="Wishlist" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+        <span class="cart-count" id="wish-badge" style="display:none;background:#c0392b">0</span>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart')" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU (full screen, Tatcha style) -->
+<div class="mob-overlay" id="mob-overlay">
+  <div class="mob-header">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+    <span class="mob-header-logo">LUMEVA</span>
+    <div style="display:flex;gap:.5rem">
+      <button class="h-icon" onclick="goTo('account');closeMob()" aria-label="Account">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart');closeMob()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge-mob" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs: Featured / Category / Skin Benefits / Our Story -->
+  <div class="mob-tabs">
+    <button class="mob-tab active" onclick="switchMobTab('featured',this)">Featured</button>
+    <button class="mob-tab" onclick="switchMobTab('category',this)">Category</button>
+    <button class="mob-tab" onclick="switchMobTab('benefits',this)">Skin Benefits</button>
+    <button class="mob-tab" onclick="switchMobTab('story',this)">Our Story</button>
+  </div>
+
+  <div class="mob-body">
+    <!-- Featured panel -->
+    <div class="mob-panel active" id="mob-featured">
+      <div class="mob-images">
+        <div class="mob-img-card" onclick="goTo('ingredients');closeMob()">
+          <div class="mic-icon">🌿</div>
+          <span>Ingredients</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('brand-guide');closeMob()">
+          <div class="mic-icon">✦</div>
+          <span>Brand Guide</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('guides');closeMob()">
+          <div class="mic-icon">📖</div>
+          <span>Guides</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('wtb');closeMob()">
+          <div class="mic-icon">📍</div>
+          <span>Where to Buy</span>
+        </div>
+      </div>
+      <div class="mob-section">
+        <a onclick="goTo('shop');closeMob()">All Skincare</a>
+        <a onclick="goTo('shop');closeMob()">Bestsellers</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">Gifts &amp; Sets</a>
+        <a onclick="goTo('shop');closeMob()">New</a>
+        <a onclick="goTo('shop');closeMob()">Exclusives</a>
+        <a onclick="goTo('shop');closeMob()">Minis</a>
+      </div>
+    </div>
+
+    <!-- Category panel -->
+    <div class="mob-panel" id="mob-category">
+      <div class="mob-section">
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Fragrance</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Sun Care</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Makeup</a>
+        <a onclick="goTo('collection','Body');closeMob()">Body</a>
+        <a onclick="goTo('collection','Body');closeMob()">Hair</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">All Products</a>
+      </div>
+    </div>
+
+    <!-- Skin Benefits panel -->
+    <div class="mob-panel" id="mob-benefits">
+      <div class="mob-section">
+        <h4>Skin Type</h4>
+        <a onclick="goTo('shop');closeMob()">Oily</a>
+        <a onclick="goTo('shop');closeMob()">Combination</a>
+        <a onclick="goTo('shop');closeMob()">Dry</a>
+        <a onclick="goTo('shop');closeMob()">Mature</a>
+        <a onclick="goTo('shop');closeMob()">Sensitive</a>
+      </div>
+      <div class="mob-section">
+        <h4>Benefits</h4>
+        <a onclick="goTo('shop');closeMob()">Hydrating</a>
+        <a onclick="goTo('shop');closeMob()">Brightening</a>
+        <a onclick="goTo('shop');closeMob()">Moisturizing</a>
+        <a onclick="goTo('shop');closeMob()">Calming</a>
+        <a onclick="goTo('shop');closeMob()">Healthy Aging</a>
+      </div>
+    </div>
+
+    <!-- Our Story panel -->\n    <div class="mob-panel" id="mob-story">
+      <div class="mob-section">
+        <a onclick="goTo('philosophy');closeMob()">Our Story</a>
+        <a onclick="goTo('philosophy');closeMob()">Giving Back</a>
+        <a onclick="goTo('brand-guide');closeMob()" style="color:var(--sage-deep);font-weight:500">✦ Brand Guide</a>
+        <a onclick="goTo('skin-hub');closeMob()">Skin Concerns</a>
+        <a onclick="goTo('ingredients');closeMob()">Ingredients</a>
+        <a onclick="goTo('guides');closeMob()">Guides</a>
+        <a onclick="goTo('wtb');closeMob()">Where to Buy</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mob-footer">
+    <button class="mob-ritual-btn" onclick="goTo('shop');closeMob()">Shop Now</button>
+    <a onclick="goTo('account');closeMob()">&#128100; Account</a>
+  </div>
+</div>
+
+<!-- PAGES -->
+<div id="page-home" class="page"></div>
+<div id="page-shop" class="page"></div>
+<div id="page-product" class="page"></div>
+<div id="page-cart" class="page"></div>
+<div id="page-checkout" class="page"></div>
+<div id="page-collection" class="page"></div>
+<div id="page-brand" class="page"></div>
+<div id="page-brand-guide" class="page active">
+    <div class="bg-page">
+      <!-- Cinematic hero with video/image background -->
+      <div class="bg-hero-wrap">
+        <div class="bg-hero-img-fallback"></div>
+        <div class="bg-hero-overlay"></div>
+        <div class="bg-hero-content">
+          <p class="eyebrow" style="color:rgba(154,163,139,.8)">✦ The Collection</p>
+          <h1>The Brand<br><em>Guide</em></h1>
+          <div class="bg-search-row">
+            <div class="bg-search-wrap">
+              <svg class="bg-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              <input id="bg-search-input" type="search" placeholder="Search a brand…" autocomplete="off" value="" oninput="_bgSearch=this.value;bgRender()" onkeydown="if(event.key==='Escape'){_bgSearch='';this.value='';bgRender()}">
+            </div>
+            <div class="bg-cat-pills">
+              <button class="bg-cat-pill active" onclick="_bgCat='Skincare';bgRender();document.querySelectorAll('.bg-cat-pill').forEach((p,i)=&gt;p.classList.toggle('active',i===0))">Skincare</button>
+              <button class="bg-cat-pill" onclick="_bgCat='Fragrance';bgRender();document.querySelectorAll('.bg-cat-pill').forEach((p,i)=&gt;p.classList.toggle('active',i===1))">Fragrance</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results area -->
+      <div id="bg-results">
+    <div class="bg-results-bar">67 skincare brands</div>
+    
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Abib')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Abib</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Abib — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Abib')">View all Abib products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Anua')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Anua</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Named after a type of wild grass, Anua approaches skincare the way Korean herbalists have for centuries — with restraint, patience, and plant intelligence. Formulated for skin that's been through too much.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Anua')">View all Anua products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Aplb')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Aplb</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Aplb — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Aplb')">View all Aplb products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','AprilSkin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>AprilSkin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from AprilSkin — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','AprilSkin')">View all AprilSkin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Arencia')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Arencia</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Arencia — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Arencia')">View all Arencia products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Axis-Y')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Axis-Y</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Axis-Y — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Axis-Y')">View all Axis-Y products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','BB Lab')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>BB Lab</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from BB Lab — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','BB Lab')">View all BB Lab products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Beauty of Joseon')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Beauty of Joseon</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Rooted in the beauty rituals of Korea's Joseon dynasty, this brand distills centuries of ingredient knowledge into modern formulas. Ginseng, rice water, honey. The Relief Sun is one of the most beloved SPFs on earth.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Beauty of Joseon')">View all Beauty of Joseon products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Benton')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Benton</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Benton — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Benton')">View all Benton products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Byphasse')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Byphasse</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Byphasse — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Byphasse')">View all Byphasse products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Celimax')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Celimax</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Celimax — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Celimax')">View all Celimax products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Centellian24')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Centellian24</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Centellian24 — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Centellian24')">View all Centellian24 products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cerave')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cerave</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Developed with dermatologists, built around ceramides. Cerave restores and maintains the skin's natural barrier — the kind of skincare that works quietly and without fanfare.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">USA</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cerave')">View all Cerave products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Colorgram')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Colorgram</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Colorgram — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Colorgram')">View all Colorgram products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cos De Baha')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cos De Baha</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Cos De Baha — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cos De Baha')">View all Cos De Baha products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cosrx')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cosrx</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>South Korea's most-studied skincare brand. Every formula is built around one principle: active ingredients at levels that actually work, nothing more. The Advanced Snail 96 Mucin Power Essence changed the global skincare conversation.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cosrx')">View all Cosrx products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Derma B')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Derma B</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Derma B — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Derma B')">View all Derma B products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Dr.Althea')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Dr.Althea</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Dr.Althea — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Dr.Althea')">View all Dr.Althea products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Dr.Melaxin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Dr.Melaxin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Dr.Melaxin — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Dr.Melaxin')">View all Dr.Melaxin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Esfolio')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Esfolio</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Esfolio — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Esfolio')">View all Esfolio products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Etude House')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Etude House</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Etude House — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Etude House')">View all Etude House products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Farmstay')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Farmstay</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Farmstay — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Farmstay')">View all Farmstay products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Frudia')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Frudia</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Frudia — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Frudia')">View all Frudia products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Genabelle')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Genabelle</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Genabelle — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Genabelle')">View all Genabelle products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Hada Labo')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Hada Labo</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Japan's number one selling skincare brand. Hada Labo built its entire philosophy on one ingredient: hyaluronic acid. Multiple molecular weights, maximum hydration, zero compromise.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">Japan</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Hada Labo')">View all Hada Labo products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Haruharu Wonder')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Haruharu Wonder</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Korean innovation rooted in fermentation science. Haruharu Wonder's Black Rice line has become a cult phenomenon for brightening and long-term hydration without irritation.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Haruharu Wonder')">View all Haruharu Wonder products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Heimish')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Heimish</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Heimish — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Heimish')">View all Heimish products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Holika Holika')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Holika Holika</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Playful, innovative, and seriously effective. Holika Holika bridges the gap between K-beauty fun and real results, with formulas that have earned shelf space in vanities worldwide.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Holika Holika')">View all Holika Holika products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','I'm From')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>I'm From</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from I'm From — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','I'm From')">View all I'm From products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Illiyoon')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Illiyoon</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Illiyoon — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Illiyoon')">View all Illiyoon products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Ishizawa Lab')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Ishizawa Lab</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Ishizawa Lab — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Ishizawa Lab')">View all Ishizawa Lab products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Isntree')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Isntree</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Korean for "it's a tree". Calm, hypoallergenic formulas built for skin that reacts to everything. No fragrance, no unnecessary actives — just barrier-first skincare for the sensitive.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Isntree')">View all Isntree products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Iunik')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Iunik</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Iunik — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Iunik')">View all Iunik products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Jumiso')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Jumiso</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Jumiso — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Jumiso')">View all Jumiso products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Kai')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Kai</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Kai — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Kai')">View all Kai products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Keana')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Keana</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Keana — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Keana')">View all Keana products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Klairs')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Klairs</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Klairs — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Klairs')">View all Klairs products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Koji White')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Koji White</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Koji White — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Koji White')">View all Koji White products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Kose')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Kose</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Kose — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Kose')">View all Kose products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','La Roche-Posay')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>La Roche-Posay</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Born in the thermal springs of La Roche-Posay, France, and trusted by dermatologists worldwide. Formulated for the most demanding skin — post-procedure, reactive, and everything in between.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">France</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','La Roche-Posay')">View all La Roche-Posay products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Laneige')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Laneige</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>K-beauty's water specialists. Laneige pioneered the idea that deep, sustained hydration is the foundation of every great skin day. The Water Sleeping Mask became a global obsession.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Laneige')">View all Laneige products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Maybelline')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Maybelline</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Maybelline — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Maybelline')">View all Maybelline products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Medicube')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Medicube</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Clinical Korean skincare focused on pores, redness, and cell renewal. Built for people who want results they can see, not promises they have to believe in.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Medicube')">View all Medicube products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Missha')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Missha</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Missha — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Missha')">View all Missha products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Nineless')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Nineless</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Nineless — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Nineless')">View all Nineless products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','numbuzin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>numbuzin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>A lab-first Korean brand that asks one question: what does your skin actually need today? Each line targets a specific skin state with clinical precision. Gentle enough for daily use, effective enough to replace your actives.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','numbuzin')">View all numbuzin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Nutrione')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Nutrione</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Nutrione — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Nutrione')">View all Nutrione products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Purito')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Purito</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Purito — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Purito')">View all Purito products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Purito Seoul')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Purito Seoul</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Purito Seoul — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Purito Seoul')">View all Purito Seoul products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Pyunkang Yul')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Pyunkang Yul</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Pyunkang Yul — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Pyunkang Yul')">View all Pyunkang Yul products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Reef')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Reef</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Reef — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Reef')">View all Reef products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Revase')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Revase</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Revase — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Revase')">View all Revase products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Rom&amp;nd')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Rom&amp;nd</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Rom&amp;nd — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Rom&amp;nd')">View all Rom&amp;nd products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','SANA')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>SANA</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from SANA — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','SANA')">View all SANA products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Shiseido')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Shiseido</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Japan's oldest cosmetics company, founded in 1872 in a Tokyo pharmacy. Over 150 years of innovation define what Japanese beauty precision looks like. Their research labs hold over 2,000 patents.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">Japan</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Shiseido')">View all Shiseido products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','SKIN1004')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>SKIN1004</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>From the volcanic soil of Madagascar comes centella asiatica so pure it changed what sensitive skincare looked like. SKIN1004 does not overcomplicate. Their Centella Sun Serum alone built an international following.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','SKIN1004')">View all SKIN1004 products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Skinfood')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Skinfood</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Skinfood — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Skinfood')">View all Skinfood products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Some By Mi')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Some By Mi</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>AHA BHA PHA 30 Days Miracle. That name says everything about Some By Mi — transparent, efficacy-forward, and designed for real skin concerns. Built for acne-prone and congested skin.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Some By Mi')">View all Some By Mi products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','The Ordinary')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>The Ordinary</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from The Ordinary — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','The Ordinary')">View all The Ordinary products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tiam')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tiam</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tiam — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tiam')">View all Tiam products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tirtir')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tirtir</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>The Korean brand that made cushion foundations feel like skincare. Tirtir's formulas are built for real skin — real texture, real pores — and have earned a loyal following across Asia and beyond.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tirtir')">View all Tirtir products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Torriden')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Torriden</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Torriden — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Torriden')">View all Torriden products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tosowoong')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tosowoong</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tosowoong — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tosowoong')">View all Tosowoong products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tsubaki')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tsubaki</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tsubaki — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tsubaki')">View all Tsubaki products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Vaseline')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Vaseline</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>The original skin healer, trusted for over 150 years. Pure petroleum jelly, multiple patented formulas. There's a reason dermatologists have recommended Vaseline since 1870.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">USA</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Vaseline')">View all Vaseline products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Vicrea')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Vicrea</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Vicrea — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Vicrea')">View all Vicrea products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','VT')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>VT</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from VT — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','VT')">View all VT products</button>
+      </div>
+    </div>
+  </div>
+    <div class="bg-switch-cta">
+      <p>Looking for our fragrance collection?</p>
+      <button class="bg-switch-btn" onclick="_bgCat='Fragrance';bgRender();document.querySelectorAll('.bg-cat-pill').forEach((p,i)=&gt;p.classList.toggle('active',i===1))">
+        Explore Fragrance — 8 brands
+      </button>
+    </div></div>
+    </div></div>
+
+      <!-- Results area -->
+      <div id="bg-results">
+    <div class="bg-results-bar">67 skincare brands</div>
+    
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Abib')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Abib</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Abib — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Abib')">View all Abib products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Anua')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Anua</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Named after a type of wild grass, Anua approaches skincare the way Korean herbalists have for centuries — with restraint, patience, and plant intelligence. Formulated for skin that's been through too much.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Anua')">View all Anua products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Aplb')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Aplb</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Aplb — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Aplb')">View all Aplb products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','AprilSkin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>AprilSkin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from AprilSkin — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','AprilSkin')">View all AprilSkin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Arencia')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Arencia</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Arencia — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Arencia')">View all Arencia products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Axis-Y')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Axis-Y</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Axis-Y — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Axis-Y')">View all Axis-Y products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','BB Lab')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>BB Lab</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from BB Lab — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','BB Lab')">View all BB Lab products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Beauty of Joseon')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Beauty of Joseon</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Rooted in the beauty rituals of Korea's Joseon dynasty, this brand distills centuries of ingredient knowledge into modern formulas. Ginseng, rice water, honey. The Relief Sun is one of the most beloved SPFs on earth.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Beauty of Joseon')">View all Beauty of Joseon products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Benton')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Benton</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Benton — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Benton')">View all Benton products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Byphasse')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Byphasse</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Byphasse — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Byphasse')">View all Byphasse products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Celimax')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Celimax</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Celimax — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Celimax')">View all Celimax products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Centellian24')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Centellian24</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Centellian24 — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Centellian24')">View all Centellian24 products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cerave')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cerave</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Developed with dermatologists, built around ceramides. Cerave restores and maintains the skin's natural barrier — the kind of skincare that works quietly and without fanfare.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">USA</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cerave')">View all Cerave products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Colorgram')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Colorgram</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Colorgram — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Colorgram')">View all Colorgram products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cos De Baha')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cos De Baha</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Cos De Baha — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cos De Baha')">View all Cos De Baha products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Cosrx')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Cosrx</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>South Korea's most-studied skincare brand. Every formula is built around one principle: active ingredients at levels that actually work, nothing more. The Advanced Snail 96 Mucin Power Essence changed the global skincare conversation.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Cosrx')">View all Cosrx products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Derma B')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Derma B</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Derma B — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Derma B')">View all Derma B products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Dr.Althea')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Dr.Althea</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Dr.Althea — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Dr.Althea')">View all Dr.Althea products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Dr.Melaxin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Dr.Melaxin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Dr.Melaxin — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Dr.Melaxin')">View all Dr.Melaxin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Esfolio')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Esfolio</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Esfolio — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Esfolio')">View all Esfolio products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Etude House')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Etude House</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Etude House — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Etude House')">View all Etude House products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Farmstay')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Farmstay</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Farmstay — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Farmstay')">View all Farmstay products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Frudia')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Frudia</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Frudia — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Frudia')">View all Frudia products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Genabelle')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Genabelle</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Genabelle — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Genabelle')">View all Genabelle products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Hada Labo')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Hada Labo</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Japan's number one selling skincare brand. Hada Labo built its entire philosophy on one ingredient: hyaluronic acid. Multiple molecular weights, maximum hydration, zero compromise.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">Japan</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Hada Labo')">View all Hada Labo products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Haruharu Wonder')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Haruharu Wonder</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Korean innovation rooted in fermentation science. Haruharu Wonder's Black Rice line has become a cult phenomenon for brightening and long-term hydration without irritation.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Haruharu Wonder')">View all Haruharu Wonder products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Heimish')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Heimish</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Heimish — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Heimish')">View all Heimish products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Holika Holika')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Holika Holika</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Playful, innovative, and seriously effective. Holika Holika bridges the gap between K-beauty fun and real results, with formulas that have earned shelf space in vanities worldwide.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Holika Holika')">View all Holika Holika products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','I'm From')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>I'm From</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from I'm From — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','I'm From')">View all I'm From products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Illiyoon')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Illiyoon</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Illiyoon — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Illiyoon')">View all Illiyoon products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Ishizawa Lab')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Ishizawa Lab</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Ishizawa Lab — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Ishizawa Lab')">View all Ishizawa Lab products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Isntree')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Isntree</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Korean for "it's a tree". Calm, hypoallergenic formulas built for skin that reacts to everything. No fragrance, no unnecessary actives — just barrier-first skincare for the sensitive.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Isntree')">View all Isntree products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Iunik')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Iunik</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Iunik — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Iunik')">View all Iunik products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Jumiso')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Jumiso</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Jumiso — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Jumiso')">View all Jumiso products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Kai')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Kai</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Kai — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Kai')">View all Kai products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Keana')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Keana</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Keana — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Keana')">View all Keana products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Klairs')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Klairs</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Klairs — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Klairs')">View all Klairs products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Koji White')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Koji White</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Koji White — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Koji White')">View all Koji White products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Kose')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Kose</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Kose — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Kose')">View all Kose products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','La Roche-Posay')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>La Roche-Posay</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Born in the thermal springs of La Roche-Posay, France, and trusted by dermatologists worldwide. Formulated for the most demanding skin — post-procedure, reactive, and everything in between.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">France</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','La Roche-Posay')">View all La Roche-Posay products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Laneige')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Laneige</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>K-beauty's water specialists. Laneige pioneered the idea that deep, sustained hydration is the foundation of every great skin day. The Water Sleeping Mask became a global obsession.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Laneige')">View all Laneige products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Maybelline')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Maybelline</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Maybelline — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Maybelline')">View all Maybelline products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Medicube')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Medicube</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Clinical Korean skincare focused on pores, redness, and cell renewal. Built for people who want results they can see, not promises they have to believe in.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Medicube')">View all Medicube products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Missha')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Missha</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Missha — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Missha')">View all Missha products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Nineless')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Nineless</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Nineless — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Nineless')">View all Nineless products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','numbuzin')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>numbuzin</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>A lab-first Korean brand that asks one question: what does your skin actually need today? Each line targets a specific skin state with clinical precision. Gentle enough for daily use, effective enough to replace your actives.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','numbuzin')">View all numbuzin products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Nutrione')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Nutrione</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Nutrione — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Nutrione')">View all Nutrione products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Purito')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Purito</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Purito — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Purito')">View all Purito products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Purito Seoul')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Purito Seoul</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Purito Seoul — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Purito Seoul')">View all Purito Seoul products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2d3a2e,#1a2418)" onclick="goTo('brand','Pyunkang Yul')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Pyunkang Yul</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Pyunkang Yul — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Pyunkang Yul')">View all Pyunkang Yul products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Reef')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Reef</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Reef — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Reef')">View all Reef products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Revase')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Revase</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Revase — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Revase')">View all Revase products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#2a2d3a,#161820)" onclick="goTo('brand','Rom&amp;nd')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Rom&amp;nd</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Rom&amp;nd — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Rom&amp;nd')">View all Rom&amp;nd products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','SANA')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>SANA</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from SANA — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','SANA')">View all SANA products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Shiseido')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Shiseido</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Japan's oldest cosmetics company, founded in 1872 in a Tokyo pharmacy. Over 150 years of innovation define what Japanese beauty precision looks like. Their research labs hold over 2,000 patents.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">Japan</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Shiseido')">View all Shiseido products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','SKIN1004')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>SKIN1004</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>From the volcanic soil of Madagascar comes centella asiatica so pure it changed what sensitive skincare looked like. SKIN1004 does not overcomplicate. Their Centella Sun Serum alone built an international following.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','SKIN1004')">View all SKIN1004 products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Skinfood')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Skinfood</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Skinfood — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Skinfood')">View all Skinfood products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a2028,#231318)" onclick="goTo('brand','Some By Mi')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Some By Mi</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>AHA BHA PHA 30 Days Miracle. That name says everything about Some By Mi — transparent, efficacy-forward, and designed for real skin concerns. Built for acne-prone and congested skin.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Some By Mi')">View all Some By Mi products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','The Ordinary')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>The Ordinary</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from The Ordinary — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','The Ordinary')">View all The Ordinary products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tiam')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tiam</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tiam — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tiam')">View all Tiam products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tirtir')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tirtir</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>The Korean brand that made cushion foundations feel like skincare. Tirtir's formulas are built for real skin — real texture, real pores — and have earned a loyal following across Asia and beyond.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">South Korea</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tirtir')">View all Tirtir products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Torriden')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Torriden</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Torriden — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Torriden')">View all Torriden products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tosowoong')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tosowoong</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tosowoong — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tosowoong')">View all Tosowoong products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#303a30,#1a241a)" onclick="goTo('brand','Tsubaki')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Tsubaki</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Tsubaki — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Tsubaki')">View all Tsubaki products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Vaseline')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Vaseline</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>The original skin healer, trusted for over 150 years. Pure petroleum jelly, multiple patented formulas. There's a reason dermatologists have recommended Vaseline since 1870.</p>
+        <div class="bg-story-meta">
+          <div class="sm-row"><span class="sm-label">Origin</span><span class="sm-val">USA</span></div>
+          <div class="sm-row"><span class="sm-label">Products</span><span class="sm-val">0 available</span></div>
+        </div>
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Vaseline')">View all Vaseline products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','Vicrea')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>Vicrea</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from Vicrea — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','Vicrea')">View all Vicrea products</button>
+      </div>
+    </div>
+  </div>
+  <div class="bg-section">
+    <div class="bg-hero" style="background:linear-gradient(160deg,#3a3020,#251f14)" onclick="goTo('brand','VT')">
+      
+      <div class="bg-hero-overlay"></div>
+      <div class="bg-hero-text">
+        <p class="eyebrow">Brand story</p>
+        <h2>VT</h2>
+        <span class="bg-tag">0 products</span>
+      </div>
+    </div>
+    <div class="bg-body">
+      <div class="bg-story">
+        <p>Discover the full range from VT — curated and authenticated for LUMEVA customers across Kenya.</p>
+        
+      </div>
+      <div class="bg-products-col">
+        <p class="bg-products-label">Featured products</p>
+        <div class="bg-product-row">
+          <p style="color:var(--muted-fg);font-size:.85rem">Products coming soon.</p>
+        </div>
+        <button class="bg-view-all" onclick="goTo('brand','VT')">View all VT products</button>
+      </div>
+    </div>
+  </div>
+    <div class="bg-switch-cta">
+      <p>Looking for our fragrance collection?</p>
+      <button class="bg-switch-btn" onclick="_bgCat='Fragrance';bgRender();document.querySelectorAll('.bg-cat-pill').forEach((p,i)=&gt;p.classList.toggle('active',i===1))">
+        Explore Fragrance — 8 brands
+      </button>
+    </div></div>
+    </div></div>
+<div id="page-philosophy" class="page"></div>
+<div id="page-ingredients" class="page"></div>
+<div id="page-guides" class="page"></div>
+<div id="page-wtb" class="page"></div>
+<div id="page-login" class="page"></div>
+<div id="page-register" class="page"></div>
+<div id="page-account" class="page"></div>
+<div id="page-wishlist" class="page"></div>
+<div id="page-skin-dry" class="page"></div>
+<div id="page-skin-hub" class="page"></div>
+<div id="page-skin-acne" class="page"></div>
+<div id="page-skin-hyperpigmentation" class="page"></div>
+<div id="page-skin-barrier" class="page"></div>
+<div id="page-skin-sensitive" class="page"></div>
+<div id="page-skin-redness" class="page"></div>
+<div id="page-skin-finelines" class="page"></div>
+<div id="page-quiz" class="page"></div>
+<div id="page-quiz-results" class="page"></div>
+<div id="page-step-shop" class="page"></div>
+<div id="page-privacy" class="page"></div>
+<div id="page-returns" class="page"></div>
+<div id="page-terms" class="page"></div>
+<div id="page-custom" class="page"></div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-head">
+    <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--muted-fg);fill:none;stroke-width:1.5;flex-shrink:0"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    <input id="search-input" type="text" placeholder="Search 480+ products…" autocomplete="off" oninput="doSearch(this.value)"/>
+    <button class="search-close" onclick="closeSearch()" aria-label="Close search">&times;</button>
+  </div>
+  <div class="search-sugg" id="search-sugg">
+    <button onclick="seedSearch('serum')">Serum</button>
+    <button onclick="seedSearch('vanilla')">Vanilla</button>
+    <button onclick="seedSearch('sunscreen')">Sunscreen</button>
+    <button onclick="seedSearch('oud')">Oud</button>
+    <button onclick="seedSearch('cleanser')">Cleanser</button>
+    <button onclick="seedSearch('hair')">Hair</button>
+  </div>
+  <div class="search-meta" id="search-meta"></div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- NEWSLETTER -->
+<div id="newsletter-wrap">
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <p class="eyebrow">Join the ritual</p>
+      <h2>A daily moment, delivered.</h2>
+      <p>Sign up for early access to new launches, expert skincare guides, and complimentary samples.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing!')">
+        <input type="email" required placeholder="Email address"/>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container-tatcha">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">LUMEVA</div>
+        <p>Kenya's leading beauty destination. K-beauty, fragrances, skincare & more — delivered nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a onclick="goTo('shop')">Bestsellers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Cleansers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Serums</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Skincare</a></li>
+          <li><a onclick="goTo('collection','Makeup')">Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a onclick="goTo('philosophy')">Philosophy</a></li>
+          <li><a onclick="goTo('ingredients')">Ingredients</a></li>
+          <li><a onclick="goTo('guides')">Guides</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a onclick="goTo('login')">Sign In</a></li>
+          <li><a onclick="goTo('register')">Create Account</a></li>
+          <li><a onclick="goTo('account')">My Account</a></li>
+          <li><a onclick="goTo('cart')">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a onclick="goTo('privacy')">Privacy Policy</a></li>
+          <li><a onclick="goTo('returns')">Returns & Refunds</a></li>
+          <li><a onclick="goTo('terms')">Terms & Conditions</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LUMEVA — Premium Skincare & Beauty, Kenya</p>
+      <p style="margin-top:.35rem">
+        <a onclick="goTo('privacy')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Privacy Policy</a>
+        <a onclick="goTo('returns')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Returns</a>
+        <a onclick="goTo('terms')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer">Terms</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Shared site JS ===== -->
+<script src="app.js"></script>
+</body>
+</html>

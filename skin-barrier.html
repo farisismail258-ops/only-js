@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Skin Barrier — LUMEVA</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="Kenya's premium beauty destination. Shop authentic K-beauty, skincare, fragrance & more — delivered nationwide. M-Pesa accepted."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link id="leaflet-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<!-- ===== Shared site CSS ===== -->
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body data-page="skin-barrier">
+
+
+<!-- MARQUEE BANNER -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <span>Free delivery on orders over KES 5,000</span><span>·</span>
+      <span>Free samples with every order</span><span>·</span>
+      <span>30-day satisfaction guarantee</span><span>·</span>
+      <span>Cruelty-free premium skincare</span><span>·</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <!-- Hamburger (mobile) -->
+    <button class="h-icon hamburger" onclick="openMob()" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Logo -->
+    <span class="h-logo" onclick="goTo('home')">LUMEVA</span>
+
+    <!-- Desktop Nav -->
+    <nav class="h-nav">
+      <!-- SHOP with mega menu -->
+      <div class="shop-wrap">
+        <a onclick="goTo('shop')">Shop</a>
+        <div class="mega-menu">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h4>Featured</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">All Skincare</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Bestsellers</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">Gifts &amp; Sets</a></li>
+                <li><a onclick="goTo('shop');closeMega()">New</a></li>
+                <li><a onclick="goTo('brand-guide');closeMega()" style="color:var(--sage-deep)">✦ Brand Guide</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Category</h4>
+              <ul>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Skincare</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Fragrance</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Sun Care</a></li>
+                <li><a onclick="goTo('collection','Skincare');closeMega()">Makeup</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Body</a></li>
+                <li><a onclick="goTo('collection','Body');closeMega()">Hair</a></li>
+                <li><a onclick="goTo('collection','Makeup');closeMega()">All Products</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Skin Type</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Oily</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Combination</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Dry</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Mature</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Sensitive</a></li>
+              </ul>
+              <h4 style="margin-top:1.25rem">Benefits</h4>
+              <ul>
+                <li><a onclick="goTo('shop');closeMega()">Hydrating</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Brightening</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Moisturizing</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Calming</a></li>
+                <li><a onclick="goTo('shop');closeMega()">Healthy Aging</a></li>
+              </ul>
+            </div>
+            <div class="mega-col mega-images">
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#cbcab7,#9aa38b)"></div>
+                <span>Gifts &amp; Sets</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('collection','Makeup');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#b9c0ab,#6f7d62)"></div>
+                <span>Gifts of Care</span>
+              </div>
+              <div class="mega-img-card" onclick="goTo('shop');closeMega()">
+                <div style="width:140px;height:90px;background:linear-gradient(160deg,#d6d2c2,#9aa38b)"></div>
+                <span>Ritual Finder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a onclick="goTo('philosophy')">Our Story</a>
+      <a onclick="goTo('brand-guide')" style="font-weight:500">Brands</a>
+      <a onclick="goTo('skin-hub')">Skin Concerns</a>
+      <a onclick="goTo('ingredients')">Ingredients</a>
+      <a onclick="goTo('guides')">Guides</a>
+      <a onclick="goTo('wtb')">Where to Buy</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="h-actions">
+      <button class="h-icon" onclick="goTo('account')" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </button>
+      <button class="h-icon" onclick="goTo('wishlist')" aria-label="Wishlist" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+        <span class="cart-count" id="wish-badge" style="display:none;background:#c0392b">0</span>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart')" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU (full screen, Tatcha style) -->
+<div class="mob-overlay" id="mob-overlay">
+  <div class="mob-header">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+    <span class="mob-header-logo">LUMEVA</span>
+    <div style="display:flex;gap:.5rem">
+      <button class="h-icon" onclick="goTo('account');closeMob()" aria-label="Account">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="h-icon cart-btn" onclick="goTo('cart');closeMob()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-badge-mob" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs: Featured / Category / Skin Benefits / Our Story -->
+  <div class="mob-tabs">
+    <button class="mob-tab active" onclick="switchMobTab('featured',this)">Featured</button>
+    <button class="mob-tab" onclick="switchMobTab('category',this)">Category</button>
+    <button class="mob-tab" onclick="switchMobTab('benefits',this)">Skin Benefits</button>
+    <button class="mob-tab" onclick="switchMobTab('story',this)">Our Story</button>
+  </div>
+
+  <div class="mob-body">
+    <!-- Featured panel -->
+    <div class="mob-panel active" id="mob-featured">
+      <div class="mob-images">
+        <div class="mob-img-card" onclick="goTo('ingredients');closeMob()">
+          <div class="mic-icon">🌿</div>
+          <span>Ingredients</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('brand-guide');closeMob()">
+          <div class="mic-icon">✦</div>
+          <span>Brand Guide</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('guides');closeMob()">
+          <div class="mic-icon">📖</div>
+          <span>Guides</span>
+        </div>
+        <div class="mob-img-card" onclick="goTo('wtb');closeMob()">
+          <div class="mic-icon">📍</div>
+          <span>Where to Buy</span>
+        </div>
+      </div>
+      <div class="mob-section">
+        <a onclick="goTo('shop');closeMob()">All Skincare</a>
+        <a onclick="goTo('shop');closeMob()">Bestsellers</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">Gifts &amp; Sets</a>
+        <a onclick="goTo('shop');closeMob()">New</a>
+        <a onclick="goTo('shop');closeMob()">Exclusives</a>
+        <a onclick="goTo('shop');closeMob()">Minis</a>
+      </div>
+    </div>
+
+    <!-- Category panel -->
+    <div class="mob-panel" id="mob-category">
+      <div class="mob-section">
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Skincare</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Fragrance</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Sun Care</a>
+        <a onclick="goTo('collection','Skincare');closeMob()">Makeup</a>
+        <a onclick="goTo('collection','Body');closeMob()">Body</a>
+        <a onclick="goTo('collection','Body');closeMob()">Hair</a>
+        <a onclick="goTo('collection','Makeup');closeMob()">All Products</a>
+      </div>
+    </div>
+
+    <!-- Skin Benefits panel -->
+    <div class="mob-panel" id="mob-benefits">
+      <div class="mob-section">
+        <h4>Skin Type</h4>
+        <a onclick="goTo('shop');closeMob()">Oily</a>
+        <a onclick="goTo('shop');closeMob()">Combination</a>
+        <a onclick="goTo('shop');closeMob()">Dry</a>
+        <a onclick="goTo('shop');closeMob()">Mature</a>
+        <a onclick="goTo('shop');closeMob()">Sensitive</a>
+      </div>
+      <div class="mob-section">
+        <h4>Benefits</h4>
+        <a onclick="goTo('shop');closeMob()">Hydrating</a>
+        <a onclick="goTo('shop');closeMob()">Brightening</a>
+        <a onclick="goTo('shop');closeMob()">Moisturizing</a>
+        <a onclick="goTo('shop');closeMob()">Calming</a>
+        <a onclick="goTo('shop');closeMob()">Healthy Aging</a>
+      </div>
+    </div>
+
+    <!-- Our Story panel -->\n    <div class="mob-panel" id="mob-story">
+      <div class="mob-section">
+        <a onclick="goTo('philosophy');closeMob()">Our Story</a>
+        <a onclick="goTo('philosophy');closeMob()">Giving Back</a>
+        <a onclick="goTo('brand-guide');closeMob()" style="color:var(--sage-deep);font-weight:500">✦ Brand Guide</a>
+        <a onclick="goTo('skin-hub');closeMob()">Skin Concerns</a>
+        <a onclick="goTo('ingredients');closeMob()">Ingredients</a>
+        <a onclick="goTo('guides');closeMob()">Guides</a>
+        <a onclick="goTo('wtb');closeMob()">Where to Buy</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mob-footer">
+    <button class="mob-ritual-btn" onclick="goTo('shop');closeMob()">Shop Now</button>
+    <a onclick="goTo('account');closeMob()">&#128100; Account</a>
+  </div>
+</div>
+
+<!-- PAGES -->
+<div id="page-home" class="page"></div>
+<div id="page-shop" class="page"></div>
+<div id="page-product" class="page"></div>
+<div id="page-cart" class="page"></div>
+<div id="page-checkout" class="page"></div>
+<div id="page-collection" class="page"></div>
+<div id="page-brand" class="page"></div>
+<div id="page-brand-guide" class="page"></div>
+<div id="page-philosophy" class="page"></div>
+<div id="page-ingredients" class="page"></div>
+<div id="page-guides" class="page"></div>
+<div id="page-wtb" class="page"></div>
+<div id="page-login" class="page"></div>
+<div id="page-register" class="page"></div>
+<div id="page-account" class="page"></div>
+<div id="page-wishlist" class="page"></div>
+<div id="page-skin-dry" class="page"></div>
+<div id="page-skin-hub" class="page"></div>
+<div id="page-skin-acne" class="page"></div>
+<div id="page-skin-hyperpigmentation" class="page"></div>
+<div id="page-skin-barrier" class="page active">
+  <div class="sg-wrap">
+    <button class="sg-back" onclick="goTo('skin-hub')">← Back to all concerns</button>
+    <div class="sg-hero">
+      <p class="eyebrow">Skin Concern · Barrier Repair</p>
+      <h1>Damaged Skin Barrier.</h1>
+      <p>Recognise a compromised moisture barrier and the science-backed path to rebuilding it.</p>
+    </div>
+
+    <div class="sg-section">
+      <h2>How to know if this is you</h2>
+      <div class="sg-overlay-grid">
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">01</div>
+        <div class="sg-card-title">Stinging when applying any product.</div>
+        <p class="sg-card-desc">A healthy barrier tolerates most formulas without reaction. If even gentle, previously-fine products now sting or burn, the barrier's protective function has broken down.</p>
+      </div>
+    </div>
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">02</div>
+        <div class="sg-card-title">Persistent tightness that never resolves.</div>
+        <p class="sg-card-desc">Unlike normal dry skin which responds to moisturiser, a damaged barrier stays tight and uncomfortable even hours after applying rich products.</p>
+      </div>
+    </div>
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">03</div>
+        <div class="sg-card-title">Visible redness across the face.</div>
+        <p class="sg-card-desc">A compromised barrier cannot regulate inflammation properly, often presenting as generalised redness rather than localised irritation.</p>
+      </div>
+    </div>
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">04</div>
+        <div class="sg-card-title">Rough, flaky texture that won't smooth out.</div>
+        <p class="sg-card-desc">Persistent flaking that doesn't respond to moisturiser or gentle exfoliation indicates the barrier itself is too damaged to retain hydration, not just dry on the surface.</p>
+      </div>
+    </div>
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">05</div>
+        <div class="sg-card-title">Skin feels reactive to weather changes.</div>
+        <p class="sg-card-desc">A healthy barrier buffers against wind, cold, and heat. Sudden sensitivity to environmental changes is a hallmark of barrier compromise.</p>
+      </div>
+    </div>
+    <div class="sg-overlay-card">
+      <div class="sg-card-img"><div class="prod-placeholder" style="display:flex"><div class="prod-logo">LUMEVA</div></div></div>
+      <div class="sg-card-text">
+        <div class="sg-card-num">06</div>
+        <div class="sg-card-title">Recent history of over-exfoliation.</div>
+        <p class="sg-card-desc">Frequent use of acids, retinoids, or physical scrubs without adequate recovery time is the most common cause of barrier damage seen in skincare-engaged people.</p>
+      </div>
+    </div></div>
+    </div>
+
+    <div class="sg-section">
+      <h2>Root causes</h2>
+      <p>Understanding the cause helps you target the right solution rather than guessing.</p>
+      <div class="sg-causes">
+    <div class="sg-cause"><div class="cause-icon">🧪</div><h4>Over-exfoliation</h4><p>Excessive use of AHAs, BHAs, retinoids, or physical scrubs strips the lipid layer faster than skin can replace it — the single most common cause in skincare enthusiasts.</p></div>
+    <div class="sg-cause"><div class="cause-icon">🧼</div><h4>Harsh, high-pH cleansers</h4><p>Sulphate-heavy cleansers disrupt the skin's naturally acidic pH (4.5-5.5), impairing the enzymes needed to maintain barrier lipids.</p></div>
+    <div class="sg-cause"><div class="cause-icon">🌬️</div><h4>Environmental stress</h4><p>Wind, extreme cold, low humidity, and pollution all mechanically and chemically degrade the barrier over time.</p></div>
+    <div class="sg-cause"><div class="cause-icon">💊</div><h4>Active ingredient overload</h4><p>Layering too many actives (retinol + vitamin C + acids simultaneously) without building tolerance overwhelms the skin's repair capacity.</p></div>
+    <div class="sg-cause"><div class="cause-icon">🛌</div><h4>Poor sleep and chronic stress</h4><p>Cortisol impairs the skin's natural lipid synthesis, slowing barrier repair — this is measurable in clinical studies of sleep-deprived skin.</p></div>
+    <div class="sg-cause"><div class="cause-icon">☀️</div><h4>Cumulative sun damage</h4><p>UV exposure degrades ceramides and ceramide-producing cells over time, making the barrier progressively less resilient.</p></div></div>
+    </div>
+
+    <div class="sg-section">
+      <h2>Recommended products</h2>
+      <p>Selected based on active ingredients with clinical evidence for damaged skin barrier.</p>
+      <p style="color:var(--muted-fg);font-size:.85rem">Shop our full skincare range.</p>
+    </div>
+
+    <div class="sg-section">
+      <h2>Routine — morning &amp; night</h2>
+      <p class="routine-label">☀️ Morning</p>
+      <div class="routine-steps">
+    <div class="routine-card" onclick="goToStepShop('Lukewarm rinse only')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">1</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Lukewarm rinse only</div><div class="prod-step">Skip cleanser if skin is very compromised — hot water and surfactants worsen barrier damage</div></div></div>
+    <div class="routine-card" onclick="goToStepShop('Ceramide Serum')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">2</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Ceramide Serum</div><div class="prod-step">Directly replenishes the lipids a damaged barrier is missing</div></div></div>
+    <div class="routine-card" onclick="goToStepShop('Rich Moisturiser')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">3</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Rich Moisturiser</div><div class="prod-step">Thicker formulas seal in the limited moisture a damaged barrier retains</div></div></div>
+    <div class="routine-card" onclick="goToStepShop('Mineral SPF')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">4</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Mineral SPF</div><div class="prod-step">Chemical sunscreens can sting compromised skin — mineral (zinc oxide) is gentler</div></div></div></div>
+      <p class="routine-label">🌙 Night</p>
+      <div class="routine-steps">
+    <div class="routine-card" onclick="goToStepShop('Gentle Cleanser')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">1</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Gentle Cleanser</div><div class="prod-step">Only if needed — over-cleansing delays barrier recovery</div></div></div>
+    <div class="routine-card" onclick="goToStepShop('Centella/Cica Serum')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">2</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Centella/Cica Serum</div><div class="prod-step">Calms inflammation and accelerates barrier repair</div></div></div>
+    <div class="routine-card" onclick="goToStepShop('Rich Moisturiser')"><div class="prod-img"><div class="prod-placeholder" style="display:flex"><div class="step-num">3</div><div class="prod-logo">LUMEVA</div></div></div><div class="prod-label-wrap"><div class="prod-name">Rich Moisturiser</div><div class="prod-step">Apply generously — this is not the time to use thin, "absorb-fast" formulas</div></div></div></div>
+    </div>
+
+    <div class="sg-doctor">
+      <div class="badge">👨‍⚕️</div>
+      <div class="content">
+        <strong>Dermatologist note</strong>
+        <p>Barrier repair requires patience and radical simplification — the most effective treatment is often stopping all active ingredients (retinol, acids, vitamin C) for 2-4 weeks and using only gentle cleansing, ceramides, and rich moisturiser. Most mild barrier damage recovers within 2-6 weeks of this approach. If skin remains painful, cracked, or doesn't improve after a month of simplified care, or if you suspect an underlying condition like eczema or rosacea, please consult a dermatologist rather than continuing to experiment with products.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <button class="btn-primary" onclick="goTo('collection','Skincare')" style="display:inline-block;padding:1rem 2.5rem">Shop all skincare →</button>
+    </div>
+  </div></div>
+<div id="page-skin-sensitive" class="page"></div>
+<div id="page-skin-redness" class="page"></div>
+<div id="page-skin-finelines" class="page"></div>
+<div id="page-quiz" class="page"></div>
+<div id="page-quiz-results" class="page"></div>
+<div id="page-step-shop" class="page"></div>
+<div id="page-privacy" class="page"></div>
+<div id="page-returns" class="page"></div>
+<div id="page-terms" class="page"></div>
+<div id="page-custom" class="page"></div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-head">
+    <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--muted-fg);fill:none;stroke-width:1.5;flex-shrink:0"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    <input id="search-input" type="text" placeholder="Search 480+ products…" autocomplete="off" oninput="doSearch(this.value)"/>
+    <button class="search-close" onclick="closeSearch()" aria-label="Close search">&times;</button>
+  </div>
+  <div class="search-sugg" id="search-sugg">
+    <button onclick="seedSearch('serum')">Serum</button>
+    <button onclick="seedSearch('vanilla')">Vanilla</button>
+    <button onclick="seedSearch('sunscreen')">Sunscreen</button>
+    <button onclick="seedSearch('oud')">Oud</button>
+    <button onclick="seedSearch('cleanser')">Cleanser</button>
+    <button onclick="seedSearch('hair')">Hair</button>
+  </div>
+  <div class="search-meta" id="search-meta"></div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- NEWSLETTER -->
+<div id="newsletter-wrap">
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <p class="eyebrow">Join the ritual</p>
+      <h2>A daily moment, delivered.</h2>
+      <p>Sign up for early access to new launches, expert skincare guides, and complimentary samples.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing!')">
+        <input type="email" required placeholder="Email address"/>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container-tatcha">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">LUMEVA</div>
+        <p>Kenya's leading beauty destination. K-beauty, fragrances, skincare & more — delivered nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a onclick="goTo('shop')">Bestsellers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Cleansers</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Serums</a></li>
+          <li><a onclick="goTo('collection','Skincare')">Skincare</a></li>
+          <li><a onclick="goTo('collection','Makeup')">Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a onclick="goTo('philosophy')">Philosophy</a></li>
+          <li><a onclick="goTo('ingredients')">Ingredients</a></li>
+          <li><a onclick="goTo('guides')">Guides</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a onclick="goTo('login')">Sign In</a></li>
+          <li><a onclick="goTo('register')">Create Account</a></li>
+          <li><a onclick="goTo('account')">My Account</a></li>
+          <li><a onclick="goTo('cart')">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a onclick="goTo('privacy')">Privacy Policy</a></li>
+          <li><a onclick="goTo('returns')">Returns & Refunds</a></li>
+          <li><a onclick="goTo('terms')">Terms & Conditions</a></li>
+          <li><a onclick="goTo('wtb')">Where to Buy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LUMEVA — Premium Skincare & Beauty, Kenya</p>
+      <p style="margin-top:.35rem">
+        <a onclick="goTo('privacy')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Privacy Policy</a>
+        <a onclick="goTo('returns')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer;margin-right:1rem">Returns</a>
+        <a onclick="goTo('terms')" style="color:rgba(244,241,234,.5);font-size:.72rem;text-decoration:none;cursor:pointer">Terms</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Shared site JS ===== -->
+<script src="app.js"></script>
+</body>
+</html>
